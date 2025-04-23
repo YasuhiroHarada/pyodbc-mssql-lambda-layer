@@ -14,7 +14,7 @@ WORKDIR /root/rpmbuild/SOURCES
 RUN mkdir /root/rpmbuild/SOURCES/unixODBC
 RUN tar -xvf unixODBC*.tar.gz -C unixODBC --strip-components=1
 WORKDIR /root/rpmbuild/SOURCES/unixODBC
-RUN ./configure --sysconfdir=/opt/python --enable-static=yes --disable-gui --disable-drivers --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --prefix=/root/unixODBC-install
+RUN ./configure --sysconfdir=/opt/python --disable-gui --disable-drivers --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --prefix=/root/unixODBC-install
 RUN make install
 RUN mv /root/unixODBC-install/bin /opt/bin
 RUN mv /root/unixODBC-install/lib /opt/lib
@@ -34,7 +34,7 @@ RUN echo $'[ODBC Driver 18 for SQL Server]\nDriver = ODBC Driver 18 for SQL Serv
 RUN so_file=$(ls /opt/microsoft/**/lib64/libmsodbcsql-*.so.* | grep msodbcsql18) && echo $'[ODBC Driver 18 for SQL Server]\nDescription = Microsoft ODBC Driver 17 for SQL Server\nDriver = '"$so_file"$'\nUsageCount = 1' > /opt/python/odbcinst.ini
 
 # Copy gconv extra files
-RUN mkdir /opt/lib/gconv;cp -r /usr/lib64/gconv /opt/lib/gconv
+RUN mkdir /opt/lib/gconv;cp -r /usr/lib64/gconv /opt/lib
 
 # Generate the zipped file that can be uploaded as a Lambda Layer
 WORKDIR /opt
