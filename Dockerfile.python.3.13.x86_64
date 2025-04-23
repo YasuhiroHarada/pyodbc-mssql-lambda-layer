@@ -6,8 +6,8 @@ RUN dnf install -y "dnf-command(download)"
 RUN dnf install -y tar
 RUN dnf group install -y "Development Tools"
 
-# Install pcre2-utf16
-RUN dnf install -y pcre2-devel pcre2-utf16
+# Install glibc-gconv-extra
+RUN dnf install -y glibc-gconv-extra
 
 # Install unixODBC
 WORKDIR /root
