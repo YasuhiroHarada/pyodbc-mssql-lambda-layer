@@ -67,7 +67,8 @@ jobs:
           body: |
             # Layer Package Release
 
-            **Remember to set the Lambda environment variable 'GCONV_PATH'='/opt/lib/gconv'**
+            > [!IMPORTANT]
+            > Remember to set the Lambda environment variable GCONV_PATH=/opt/lib/gconv
 
             I'm pleased to announce the latest build of my pyodbc layers for SQL Server connectivity is here. Please select the appropriate package based on your Lambda runtime environment:
 
