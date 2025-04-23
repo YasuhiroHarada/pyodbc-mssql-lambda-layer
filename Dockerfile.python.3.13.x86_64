@@ -17,7 +17,7 @@ WORKDIR /root/rpmbuild/SOURCES
 RUN mkdir /root/rpmbuild/SOURCES/unixODBC
 RUN tar -xvf unixODBC*.tar.gz -C unixODBC --strip-components=1
 WORKDIR /root/rpmbuild/SOURCES/unixODBC
-RUN ./configure --sysconfdir=/opt/python --disable-gui --disable-drivers --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --prefix=/root/unixODBC-install
+RUN ./configure --sysconfdir=/opt/python --enable-static=yes --disable-gui --disable-drivers --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --prefix=/root/unixODBC-install
 RUN make install
 RUN mv /root/unixODBC-install/bin /opt/bin
 RUN mv /root/unixODBC-install/lib /opt/lib
