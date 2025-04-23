@@ -7,7 +7,7 @@ RUN dnf install -y tar
 RUN dnf group install -y "Development Tools"
 
 # Install pcre2-utf16
-RUN dnf install -y pcre2-utf16
+RUN dnf install -y pcre2-devel pcre2-utf16
 
 # Install unixODBC
 WORKDIR /root
