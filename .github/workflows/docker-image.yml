@@ -9,13 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1
       matrix:
         architecture: [x86_64, arm64]
-        #architecture: [x86_64]
         python-version: ['3.11', '3.12','3.13']
-        #python-version: ['3.13']
-
+        
     steps:
     - uses: actions/checkout@v4
 
