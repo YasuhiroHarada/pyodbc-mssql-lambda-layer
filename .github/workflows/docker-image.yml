@@ -21,11 +21,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    #- name: Set up QEMU
-    #  uses: docker/setup-qemu-action@v3
-    #  with:
-    #    platforms: ${{ matrix.architecture }}
-
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
 
@@ -71,6 +66,8 @@ jobs:
           tag: ${{ github.ref_name }}
           body: |
             # Layer Package Release
+
+            **Remember to set the Lambda environment variable 'GCONV_PATH'='/opt/lib/gconv'**
 
             I'm pleased to announce the latest build of my pyodbc layers for SQL Server connectivity is here. Please select the appropriate package based on your Lambda runtime environment:
 
