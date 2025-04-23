@@ -1,4 +1,4 @@
-# pyodbc-mssql-lambda-layer and glibc-iconv-extra
+# pyodbc-mssql-lambda-layer with glibc-iconv-extra
 
 AWS Lambda runtimes for Python 3.12 and later are based on Amazon Linux 2023, which does not include glibc-iconv-extra, causing “Unicode conversion failed” errors. This Lambda layer resolves this issue.
 
