@@ -36,6 +36,9 @@ RUN pip3 install pyodbc --upgrade --target /opt/python
 RUN echo $'[ODBC Driver 18 for SQL Server]\nDriver = ODBC Driver 18 for SQL Server\nDescription = My ODBC Driver 18 for SQL Server\nTrace = No' > /opt/python/odbc.ini
 RUN so_file=$(ls /opt/microsoft/**/lib64/libmsodbcsql-*.so.* | grep msodbcsql18) && echo $'[ODBC Driver 18 for SQL Server]\nDescription = Microsoft ODBC Driver 17 for SQL Server\nDriver = '"$so_file"$'\nUsageCount = 1' > /opt/python/odbcinst.ini
 
+# Copy gconv extra files
+RUN mkdir /opt/lib/gconv;cp -r /usr/lib64/gconv /opt/lib
+
 # Generate the zipped file that can be uploaded as a Lambda Layer
 WORKDIR /opt
 RUN zip -r /layer.zip .
