@@ -5,6 +5,9 @@ AWS Lambda runtimes for Python 3.12 and later are based on Amazon Linux 2023, wh
 > [!IMPORTANT]
 > Remember to set the Lambda environment variable GCONV_PATH=/opt/lib/gconv
 
+If you only need glibc-gconv-extra lambda layer, see 
+https://github.com/YasuhiroHarada/glibc-gconv-extra-lambda-layer
+
 # pyodbc-mssql-lambda-layer
 
 [![Docker Image CI](https://github.com/davidcomerford/pyodbc-mssql-lambda-layer/actions/workflows/docker-image.yml/badge.svg)](https://github.com/davidcomerford/pyodbc-mssql-lambda-layer/actions/workflows/docker-image.yml)
